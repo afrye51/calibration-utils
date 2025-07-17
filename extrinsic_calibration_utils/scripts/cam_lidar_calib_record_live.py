@@ -21,7 +21,7 @@ class OneShotRecorder(Node):
         self.image_lock = threading.Lock()
         self.cloud_lock = threading.Lock()
 
-        self.create_subscription(Image, '/camera/image_raw', self.image_callback, 10)
+        self.create_subscription(Image, 'image', self.image_callback, 10)
         self.create_subscription(PointCloud2, '/lidar/points', self.cloud_callback, 10)
 
         self.get_logger().info("Node initialized. Press Enter to capture image and point cloud.")
